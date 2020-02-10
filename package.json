@@ -9,10 +9,22 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "electron:generate-icons": "electron-icon-builder --input=./public/icon.png --output=./public --flatten"
   },
-  "main": "index.js",
+  "main": "background.js",
   "dependencies": {
+    "bluebird": "^3.7.2",
+    "buefy": "^0.8.0",
+    "fuse.js": "^3.4.6",
+    "pouchdb": "^7.1.1",
+    "pouchdb-find": "^7.1.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
     "vuex": "^3.1.2"
@@ -22,9 +34,14 @@
     "@vue/cli-plugin-router": "~4.2.0",
     "@vue/cli-plugin-vuex": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
-    "electron-builder": "^22.3.2",
+    "@vue/devtools": "^5.3.3",
+    "electron": "^7.0.0",
+    "electron-icon-builder": "^1.0.2",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
+    "vue-cli-plugin-buefy": "~0.3.7",
+    "vue-cli-plugin-electron-builder": "~2.0.0-beta.2",
+    "vue-cli-plugin-pug": "^1.0.7",
     "vue-template-compiler": "^2.6.11"
   },
   "_id": "cardinal-scouting-app@0.1.0",
